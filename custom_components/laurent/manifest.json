@@ -1,0 +1,15 @@
+{
+  "domain": "laurent",
+  "name": "Laurent",
+  "version": "0.1.0",
+  "integration_type": "device",
+  "codeowners": [
+    "leonidboykov"
+  ],
+  "documentation": "https://github.com/leonidboykov/ha-laurent",
+  "issue_tracker": "https://github.com/leonidboykov/ha-laurent/issues",
+  "dependencies": [],
+  "iot_class": "local_polling",
+  "requirements": [],
+  "config_flow": true
+}
