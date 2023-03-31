@@ -8,6 +8,7 @@ on:
 
 jobs:
   hassfest:
+    name: Hassfest
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v3
