@@ -1,1 +1,1 @@
-# Laurent HACS
+# Laurent for Home Assistant
