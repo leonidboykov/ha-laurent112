@@ -11,10 +11,12 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.const import (
+    CONF_NAME
+)
 
 from .const import (
     DOMAIN,
-    DEFAULT_NAME,
     MANUFACTURER,
 )
 from .coordinator import LaurentDataCoordinator
@@ -48,13 +50,13 @@ class LaurentSwitchEntity(
     def __init__(self, coordinator: LaurentDataCoordinator, idx: int, data: LaurentData) -> None:
         super().__init__(coordinator=coordinator, context=idx)
         self.idx = idx
-        self._attr_unique_id = idx
-        self._attr_name = f"Laurent Socket {idx}"
+        self._attr_unique_id = f"{coordinator.config.data.get(CONF_NAME)} Socket {idx}"
+        self._attr_name = f"{coordinator.config.data.get(CONF_NAME)} Socket {idx}"
         self._attr_is_on = data.states[idx-1]
 
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, self.coordinator.config.entry_id)},
-            name=DEFAULT_NAME,
+            name=self.coordinator.config.data.get(CONF_NAME),
             model=data.model,
             manufacturer=MANUFACTURER,
             sw_version=data.firmware,

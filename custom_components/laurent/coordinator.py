@@ -7,11 +7,11 @@ import logging
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
-from homeassistant.const import CONF_SCAN_INTERVAL
-
-from .const import (
-    DEFAULT_NAME
+from homeassistant.const import (
+    CONF_NAME,
+    CONF_SCAN_INTERVAL
 )
+
 from .laurent import (
     Laurent,
     LaurentData
@@ -31,7 +31,7 @@ class LaurentDataCoordinator(DataUpdateCoordinator[LaurentData]):
         super().__init__(
             hass,
             _LOGGER,
-            name=DEFAULT_NAME,
+            name=config_entry.data.get(CONF_NAME),
             update_interval=timedelta(
                 seconds=config_entry.data.get(CONF_SCAN_INTERVAL)),
             update_method=self.fetch_data
