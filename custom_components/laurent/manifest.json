@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "integration_type": "device",
   "codeowners": [
-    "leonidboykov"
+    "@leonidboykov"
   ],
   "documentation": "https://github.com/leonidboykov/ha-laurent",
   "issue_tracker": "https://github.com/leonidboykov/ha-laurent/issues",
